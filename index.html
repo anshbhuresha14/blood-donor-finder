@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LifeLink – Blood Donor Finder</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="logo">🩸 LifeLink</div>
+  <nav><a href="#find">Find Donor</a><a href="#register">Become a Donor</a><a href="#how">How it works</a></nav>
+</header>
+
+<section class="hero">
+  <h1>Find a blood donor <span>in seconds</span></h1>
+  <p>Connect instantly with verified donors near you. No WhatsApp group chaos.</p>
+  <div class="stats">
+    <div><b id="stDonors">0</b><small>Donors</small></div>
+    <div><b id="stAvail">0</b><small>Available now</small></div>
+    <div><b>8</b><small>Blood groups</small></div>
+  </div>
+</section>
+
+<main>
+<section id="find" class="card">
+  <h2>🔍 Find a donor</h2>
+  <div class="grid">
+    <label>Blood group needed
+      <select id="sGroup"></select></label>
+    <label>Search radius
+      <select id="sRadius"><option value="5">5 km</option><option value="10" selected>10 km</option><option value="25">25 km</option><option value="50">50 km</option><option value="9999">Any distance</option></select></label>
+    <label class="check"><input type="checkbox" id="sCompat" checked> Include compatible groups</label>
+    <label class="check"><input type="checkbox" id="sAvail" checked> Only available donors</label>
+  </div>
+  <div class="row">
+    <button class="btn" id="btnSearch">Search nearby donors</button>
+    <button class="btn ghost" id="btnLoc">📍 Use my location</button>
+  </div>
+  <p id="locStatus" class="muted">Location not set – showing distances from demo location (Delhi).</p>
+  <div id="results" class="results"></div>
+</section>
+
+<section id="register" class="card">
+  <h2>❤️ Become a donor</h2>
+  <form id="regForm" class="grid">
+    <label>Full name<input id="rName" required maxlength="40"></label>
+    <label>Phone (10 digits)<input id="rPhone" required pattern="[0-9]{10}" inputmode="numeric" maxlength="10"></label>
+    <label>Blood group<select id="rGroup" required></select></label>
+    <label>City / Area<input id="rCity" required maxlength="40"></label>
+    <label>Last donated (optional)<input type="date" id="rLast"></label>
+    <label class="check"><input type="checkbox" id="rAvail" checked> I am available to donate</label>
+    <div class="full row">
+      <button class="btn" type="submit">Register as donor</button>
+      <button class="btn ghost" type="button" id="btnRegLoc">📍 Attach my location</button>
+    </div>
+    <p id="regMsg" class="full muted">Your location is needed so people nearby can find you.</p>
+  </form>
+</section>
+
+<section id="how" class="card">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div><span>1</span>Donors register with blood group &amp; location</div>
+    <div><span>2</span>Patient searches by group &amp; radius</div>
+    <div><span>3</span>Nearest eligible donors appear first</div>
+    <div><span>4</span>Call or WhatsApp with one tap</div>
+  </div>
+  <p class="muted">Donors become eligible again 90 days after their last donation. Data is stored in your browser (demo).</p>
+  <button class="btn ghost" id="btnReset">Reset demo data near me</button>
+</section>
+</main>
+<footer>Built for Hackways Hackathon • PS-02 Blood Donor Finder</footer>
+<script src="app.js"></script>
+</body>
+</html>
